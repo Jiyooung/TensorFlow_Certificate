@@ -70,3 +70,5 @@ model.fit(training_images, training_labels, epochs=5, callbacks=[callbacks])
 ```
 
 [Callback python code](https://colab.research.google.com/github/lmoroney/dlaicourse/blob/master/Course%201%20-%20Part%204%20-%20Lesson%204%20-%20Notebook.ipynb#scrollTo=N9-BCmi15L93)
+
+[Exercise 2 in colab](https://colab.research.google.com/github/lmoroney/dlaicourse/blob/master/Exercises/Exercise%202%20-%20Handwriting%20Recognition/Exercise2-Question.ipynb)
