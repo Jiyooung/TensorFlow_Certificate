@@ -34,6 +34,6 @@ X가 10이면 Y가 19와 같을 확률이 매우 높지만 신경망은 양수�
 
 [Week1 실습](https://github.com/lmoroney/dlaicourse/blob/master/Course%201%20-%20Part%202%20-%20Lesson%202%20-%20Notebook.ipynb)
 
-
+[Exercise 1 in colab](https://colab.research.google.com/github/lmoroney/dlaicourse/blob/master/Exercises/Exercise%201%20-%20House%20Prices/Exercise_1_House_Prices_Question.ipynb)
 
 
