@@ -12,26 +12,28 @@ from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from shutil import copyfile
 from os import getcwd
 
-path_cats_and_dogs = f"{getcwd()}/../tmp2/cats-and-dogs.zip"
-shutil.rmtree('/tmp')
-
-local_zip = path_cats_and_dogs
-zip_ref = zipfile.ZipFile(local_zip, 'r')
-zip_ref.extractall('/tmp')
-zip_ref.close()
+# # 파일 압축 해제, 처음 한 번만 수행
+# path_cats_and_dogs = f"{getcwd()}/../cats-and-dogs.zip"
+# # shutil.rmtree('/tmp')   # '/tmp' 폴더 삭제되니 주의!
+#
+# local_zip = path_cats_and_dogs
+# zip_ref = zipfile.ZipFile(local_zip, 'r')
+# zip_ref.extractall('/tmp')
+# zip_ref.close()
 
 print(len(os.listdir('/tmp/PetImages/Cat/')))
 print(len(os.listdir('/tmp/PetImages/Dog/')))
 
 # Expected Output:
-# 1500
-# 1500
+# 12501
+# 12501
 
 # Use os.mkdir to create your directories
 # You will need a directory for cats-v-dogs, and subdirectories for training
 # and testing. These in turn will need subdirectories for 'cats' and 'dogs'
 try:
     #YOUR CODE GOES HERE
+    shutil.rmtree('/tmp/cats-v-dogs')
     os.mkdir('/tmp/cats-v-dogs')
     
     os.mkdir('/tmp/cats-v-dogs/training')
@@ -66,8 +68,10 @@ def split_data(SOURCE, TRAINING, TESTING, SPLIT_SIZE):
 # YOUR CODE STARTS HERE
     source = os.listdir(SOURCE)
     dataset = []
-    
-    for file in source:
+    source_size = 1500
+    random_source = random.sample(source, source_size)
+
+    for file in random_source:
         path = SOURCE + file
         if (os.path.getsize(path) > 0):
             dataset.append(file)
@@ -85,7 +89,6 @@ def split_data(SOURCE, TRAINING, TESTING, SPLIT_SIZE):
         
 # YOUR CODE ENDS HERE
 
-
 CAT_SOURCE_DIR = "/tmp/PetImages/Cat/"
 TRAINING_CATS_DIR = "/tmp/cats-v-dogs/training/cats/"
 TESTING_CATS_DIR = "/tmp/cats-v-dogs/testing/cats/"
@@ -102,6 +105,7 @@ print(len(os.listdir('/tmp/cats-v-dogs/training/dogs/')))
 print(len(os.listdir('/tmp/cats-v-dogs/testing/cats/')))
 print(len(os.listdir('/tmp/cats-v-dogs/testing/dogs/')))
 
+# 파일 사이즈가 0인 파일은 빼고 함으로 오차 발생 가능
 # Expected output:
 # 1350
 # 1350
@@ -156,15 +160,13 @@ validation_generator = validation_datagen.flow_from_directory(#YOUR CODE HERE
 # Found 2700 images belonging to 2 classes.
 # Found 300 images belonging to 2 classes.
 
-
-
 history = model.fit_generator(train_generator,
                               epochs=2,
                               verbose=1,
                               validation_data=validation_generator)
 
 # PLOT LOSS AND ACCURACY
-%matplotlib inline
+# %matplotlib inline
 
 import matplotlib.image  as mpimg
 import matplotlib.pyplot as plt
