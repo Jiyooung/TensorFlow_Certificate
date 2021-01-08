@@ -13,4 +13,3 @@ def house_model(y_new):
 
 prediction = house_model([7.0])
 print(prediction)
-
