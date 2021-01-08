@@ -1,6 +1,6 @@
 # 2. Convolutional Neural Networks in TensorFlow
 
-## WEEK 2 : Convolutional Neural Networks in TensorFlow
+## WEEK 2 : Augmentation: A technique to avoid overfitting
 
 ## Image Augmentation
 작은 데이터 집합을 보다 효과적으로 만들기 위해 사용할 수 있는 도구<br>
