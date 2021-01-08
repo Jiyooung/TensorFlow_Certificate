@@ -11,7 +11,7 @@
 
 ### 참고 자료
 - [TF_Certificate_Candidate_Handbook](https://www.tensorflow.org/extras/cert/TF_Certificate_Candidate_Handbook.pdf)
-- [TF_Certificate_Candidate_Handbook_ko.pdf](TensorFlow_Certificate_Handbook/TF_Certificate_Candidate_Handbook_ko.pdf)
+- [TF_Certificate_Candidate_Handbook_ko.pdf](TF_Certificate_Candidate_Handbook_ko.pdf)
 
 
 ## TensorFlow Developer Certificate 시험 환경설정
