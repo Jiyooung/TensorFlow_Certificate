@@ -1,26 +1,25 @@
 import tensorflow as tf
 from os import path, getcwd, chdir
 
-path = f"{getcwd()}/../tmp2/mnist.npz"
+# path = f"{getcwd()}/../tmp2/mnist.npz"
 
-config = tf.ConfigProto()
-config.gpu_options.allow_growth = True
-sess = tf.Session(config=config)
-
+# config = tf.ConfigProto()
+# config.gpu_options.allow_growth = True
+# sess = tf.Session(config=config)
 
 # GRADED FUNCTION: train_mnist_conv
 def train_mnist_conv():
 
     class myCallback(tf.keras.callbacks.Callback):
         def on_epoch_end(self, epoch, logs={}):
-            if (logs.get('acc') > 0.998):
+            if (logs.get('accuracy') > 0.998):
                 print("\nReached 99.8% accuracy so cancelling training!")
                 self.model.stop_training = True
 
     callbacks = myCallback()
 
     mnist = tf.keras.datasets.mnist
-    (training_images, training_labels), (test_images, test_labels) = mnist.load_data(path=path)
+    (training_images, training_labels), (test_images, test_labels) = mnist.load_data()
 
     training_images = training_images.reshape(60000, 28, 28, 1)
     training_images = training_images / 255.0
@@ -42,6 +41,6 @@ def train_mnist_conv():
     # model fitting
     history = model.fit(training_images, training_labels, epochs=20, callbacks=[callbacks])
     # model fitting
-    return history.epoch, history.history['acc'][-1]
+    return history.epoch, history.history['accuracy'][-1]
 
 _, _ = train_mnist_conv()
