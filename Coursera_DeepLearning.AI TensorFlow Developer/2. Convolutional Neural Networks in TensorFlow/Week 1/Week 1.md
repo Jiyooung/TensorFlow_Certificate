@@ -85,7 +85,7 @@ validation_generator : 2개 클래스에 1000개 이미지<br>
 > 전체 데이터 집합을 사용하면 더 나은 결과를 얻을 수 있음
 
 
-
+[Exercise 5 in colab](https://colab.research.google.com/github/lmoroney/dlaicourse/blob/master/Exercises/Exercise%205%20-%20Real%20World%20Scenarios/Exercise%205%20-%20Question.ipynb)
 
 
 
