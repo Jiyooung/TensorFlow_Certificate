@@ -11,9 +11,23 @@ from tensorflow.keras.optimizers import RMSprop
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from shutil import copyfile
 from os import getcwd
+import requests
+import urllib
+
+data_url = 'https://storage.googleapis.com/laurencemoroney-blog.appspot.com/cats-and-dogs.zip'
+# 데이터 다운로드, 처음 한 번만 수행
+# import requests
+# req = requests.get(data_url)
+# # print(req.status_code) # 200 성공
+# with open("cats-and-dogs.zip", "wb") as code:
+#     code.write(req.content)
+
+# url 파일 다운로드 또 다른 방법
+# import urllib.request
+# urllib.request.urlretrieve(data_url, "cats-and-dogs.zip")
 
 # # 파일 압축 해제, 처음 한 번만 수행
-# path_cats_and_dogs = f"{getcwd()}/../cats-and-dogs.zip"
+# path_cats_and_dogs = f"{getcwd()}/cats-and-dogs.zip"
 # # shutil.rmtree('/tmp')   # '/tmp' 폴더 삭제되니 주의!
 #
 # local_zip = path_cats_and_dogs
