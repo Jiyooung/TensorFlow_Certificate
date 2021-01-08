@@ -3,7 +3,11 @@ import os
 import zipfile
 from os import path, getcwd, chdir
 
-path = f"{getcwd()}/../tmp2/happy-or-sad.zip"
+path = f"{getcwd()}/../happy-or-sad.zip"
+
+# !wget --no-check-certificate \
+#     "https://storage.googleapis.com/laurencemoroney-blog.appspot.com/happy-or-sad.zip" \
+#     -O "/tmp/happy-or-sad.zip"
 
 zip_ref = zipfile.ZipFile(path, 'r')
 zip_ref.extractall("/tmp/h-or-s")
@@ -13,13 +17,12 @@ zip_ref.close()
 def train_happy_sad_model():
     # Please write your code only where you are indicated.
     # please do not remove # model fitting inline comments.
-
     DESIRED_ACCURACY = 0.999
 
     class myCallback(tf.keras.callbacks.Callback):
          # Your Code
         def on_epoch_end(self, epoch, logs={}):
-            if (logs.get('acc') > 0.999):
+            if (logs.get('accuracy') > DESIRED_ACCURACY):
                 print("\nReached 99.9% accuracy so cancelling training!")
                 self.model.stop_training = True
 
@@ -56,8 +59,8 @@ def train_happy_sad_model():
     # Please use a target_size of 150 X 150.
     train_generator = train_datagen.flow_from_directory(
         "/tmp/h-or-s",
-        target_size=(150,150),
-        batch_size=128,
+        target_size=(150, 150),
+        batch_size=10,
         class_mode='binary')
         
     # Expected output: 'Found 80 images belonging to 2 classes'
@@ -70,10 +73,11 @@ def train_happy_sad_model():
         steps_per_epoch=8,
         epochs=15,
         verbose=1,
-        callbacks=[callbacks])
+        callbacks=[callbacks]
+    )
 
     # model fitting
-    return history.history['acc'][-1]
+    return history.history['accuracy'][-1]
 
 # The Expected output: "Reached 99.9% accuracy so cancelling training!""
 train_happy_sad_model()
