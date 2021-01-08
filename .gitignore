@@ -1,3 +1,5 @@
 .idea/
 git-commit-template.txt
 *.zip
+inception_v3
+*.csv
