@@ -99,7 +99,7 @@ train_datagen = ImageDataGenerator(rescale = 1./255.,
 [Week 3 실습_dropouts](https://colab.research.google.com/github/lmoroney/dlaicourse/blob/master/Course%202%20-%20Part%206%20-%20Lesson%203%20-%20Notebook.ipynb)<br>
 
 
-
+[Exercise 7 in colab](https://colab.research.google.com/github/lmoroney/dlaicourse/blob/master/Exercises/Exercise%207%20-%20Transfer%20Learning/Exercise%207%20-%20Question.ipynb)
 
 
 
